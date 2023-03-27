@@ -8,6 +8,7 @@ export const authOptions = {
             clientSecret: process.env.CLIENT_SECRET,
         }),
     ],
+    secret: 'IamVery1231i3jodsjad9j9ue21pj',
     session: {
         strategy: 'jwt',
     },
