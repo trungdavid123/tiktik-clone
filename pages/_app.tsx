@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Sidebar from '@/components/Sidebar';
 import { SessionProvider } from "next-auth/react"
-
+import Head from 'next/head';
 export default function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const [isSSR, setisSSR] = useState(true);
 
@@ -16,6 +16,9 @@ export default function App({ Component, pageProps: { session, ...pageProps } }:
 
   return (
     <>
+      <Head>
+        <link rel="icon" sizes="76x76" href="/favicon.png" />
+      </Head>
       <SessionProvider session={session}>
         <div className='xl:w-[1200px] m-auto overflow-hidden h-[100vh]'>
           <Navbar />

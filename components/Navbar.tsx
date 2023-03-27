@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import svg from '../public/next.svg';
 import { useSession, signIn, signOut } from 'next-auth/react';
 import { fetchGoogleResponse } from '@/utils';
 import { IoMdAdd } from 'react-icons/io';
 import { AiOutlineLogout } from 'react-icons/ai';
 import { BiSearch } from 'react-icons/bi';
 import { useRouter } from 'next/router';
+import logo from "../public/logo.png"; 
 
 const Navbar = () => {
   const { data, status } = useSession();
@@ -30,13 +30,11 @@ const Navbar = () => {
     }
   }, [data, status])
 
-  
-
   return (
     <div className='w-full flex justify-between items-center border-b-2 border-gray-200 py-2 px-4'>
       <Link href="/">
         <div className='w-[100px] md:w-[130px]'>
-          <Image height={200} width={100} className='cursor-pointer' src={svg} alt='logo' />
+          <Image height={100} width={50} className='cursor-pointer' src={logo} alt='logo' />
         </div>
       </Link>
       <div className='relative hidden md:block'>
@@ -57,7 +55,7 @@ const Navbar = () => {
               </button>
             </Link>
             {data.user?.image && (
-              <Link href="/">
+              <Link href={`/profile/${data.id}`}>
                 <>
                   <Image width={40} height={40} className="rounded-full cursor-pointer" src={data.user?.image} alt="r" />
                 </>

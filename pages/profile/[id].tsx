@@ -34,18 +34,18 @@ const Profile = ({ data }: IProps) => {
     }, [showUserVideos, userLikedVideos, userVideos])
 
     return (
-        <div className='w-full'>
-            <div className='flex gap-6 md:gap-10 mb-4 bg-white w-full'>
+        <div className='w-full mt-4'>
+            <div className='flex mt-4 mb-4 bg-white w-full'>
                 <div className='w-16 h-16 md:w-32 md:h-32'>
                     <Image
                         src={user.image}
-                        width={100}
-                        height={100}
+                        width={80}
+                        height={80}
                         alt="user profile"
                         className='rounded-full'
                     />
                 </div>
-                <div className='flex flex-col items-center'>
+                <div className='flex flex-col'>
                     <p className='md:text-2xl tracking-wider flex gap-1 justify-center text-md font-bold text-primary lowercase'>
                         {user.userName.replaceAll(' ', '')}
                         <GoVerified className='text-blue-400' />
